@@ -1,0 +1,32 @@
+[project]
+name = "learn-react-backend"
+version = "0.1.0"
+description = "FastAPI backend for Learn React learning project"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "Learn React", email = "dev@learnreact.local"}
+]
+dependencies = [
+    "fastapi==0.104.1",
+    "uvicorn[standard]==0.24.0",
+    "python-dotenv==1.0.0",
+    "python-multipart",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "httpx>=0.24.0",
+]
+
+[project.scripts]
+app = "main:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
